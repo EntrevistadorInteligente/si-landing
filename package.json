@@ -7,7 +7,13 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "clean": "git clean -xdf node_modules dist",
+    "preprettier": ".prettierignore",
+    "format": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,json,astro}\"",
+    "format:fix": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,mdx,json,astro}\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.2",
