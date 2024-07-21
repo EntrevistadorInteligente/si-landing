@@ -20,6 +20,29 @@
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.12.1",
     "tailwindcss": "^3.4.6",
+    "tailwindcss-animated": "^1.1.2",
     "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "@astrojs/ts-plugin": "^1.8.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+    "@types/node": "^20.14.2",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "astro-eslint-parser": "^1.0.2",
+    "clsx": "^2.1.1",
+    "class-variance-authority": "^0.7.0",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^1.2.2",
+    "eslint-plugin-compat": "^5.0.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-promise": "^6.2.0",
+    "eslint-plugin-sonarjs": "^1.0.3",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "tailwind-merge": "^2.4.0",
+    "typescript-eslint": "^7.16.1"
   }
 }
