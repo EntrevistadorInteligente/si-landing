@@ -24,6 +24,12 @@ const config = {
     '^.[./].*',
     '',
   ],
+  importOrderParserPlugins: ['typescript', 'astro', 'jsx', 'decorators', 'svelte', 'vue', 'html'],
+  importOrderSeparation: false,
+  importOrderSortSpecifiers: true,
+  importOrderBuiltinModulesToTop: true,
+  importOrderMergeDuplicateImports: true,
+  importOrderCombineTypeAndValueImports: true,
   tailwindConfig: './tailwind.config.mjs',
   tailwindFunctions: ['cn', 'clsx', 'cva'],
   overrides: [
