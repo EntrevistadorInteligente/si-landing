@@ -1,19 +1,48 @@
 {
   "name": "ei-landing",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "astro": "astro",
     "build": "astro check && astro build",
+    "clean": "git clean -xdf node_modules dist",
+    "dev": "astro dev",
+    "format": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,json,astro}\"",
+    "format:fix": "prettier --write \"**/*.{js,cjs,mjs,ts,tsx,md,mdx,json,astro}\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "preprettier": ".prettierignore",
     "preview": "astro preview",
-    "astro": "astro"
+    "start": "astro dev"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.2",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.12.1",
     "tailwindcss": "^3.4.6",
+    "tailwindcss-animated": "^1.1.2",
     "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "@astrojs/ts-plugin": "^1.8.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+    "@types/node": "^20.14.2",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "astro-eslint-parser": "^1.0.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^1.2.2",
+    "eslint-plugin-compat": "^5.0.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-promise": "^6.2.0",
+    "eslint-plugin-sonarjs": "^1.0.3",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "tailwind-merge": "^2.4.0",
+    "typescript-eslint": "^7.16.1"
   }
 }

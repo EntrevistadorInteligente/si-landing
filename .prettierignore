@@ -1,0 +1,31 @@
+# Initially ignore everything in the project
+/*
+
+# Source code and content directories
+!/.github
+!/public
+!/src
+!/.vscode
+
+# Configuration files
+!.browserslistrc
+!.eslintignore
+!.eslintrc.cjs
+!.gitignore
+!.nvmrc
+!.tool-versions
+!.validate-branch-namerc.json
+!astro.config.mjs
+!astro.config.ts
+!commitlint.config.mjs
+!lint-staged.config.mjs
+!package.json
+!postcss.config.mjs
+!prettier.config.mjs
+!stylelint.config.mjs
+!tsconfig.json
+!tailwind.config.mjs
+
+
+# Documentation
+!README.md
