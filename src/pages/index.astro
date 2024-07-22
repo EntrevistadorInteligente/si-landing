@@ -1,8 +1,14 @@
 ---
-import { Button } from '@components';
 import { Layout } from '@layouts';
+import { Contributors, Feature, Hero, Services, WhoWeAre } from './_sections';
 ---
 
 <Layout title="First Page">
-  <Button size="2xl" class="m-4" isFullRounded>Astro Project</Button>
+  <main>
+    <Hero />
+    <Services />
+    <Feature />
+    <WhoWeAre />
+    <Contributors />
+  </main>
 </Layout>

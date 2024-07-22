@@ -1,0 +1,84 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { Icons, IconStyle, type IconCatalogType, type IconStyleType } from './Icons.type';
+
+const IconStyles: Record<IconStyleType, number> = {
+  thin: 1,
+  light: 1.2,
+  regular: 1.5,
+  bold: 1.8,
+  solid: 0,
+};
+
+interface Props extends HTMLAttributes<'svg'> {
+  /**
+   * The color variant of the icon.
+   */
+  color?: string;
+
+  /**
+   * Additional CSS classes to be applied to the SVG element.
+   */
+  class?: string;
+
+  /**
+   * The icon to display.
+   */
+  icon?: IconCatalogType;
+
+  /**
+   * The style of the icon.
+   */
+  iconStyle?: IconStyleType;
+
+  /**
+   * id for the icon.
+   */
+  id?: string;
+}
+
+const { class: className, icon = 'discord', iconStyle = 'thin', style, id } = Astro.props;
+
+const strokeWidth = IconStyles[iconStyle];
+const iconPaths = Icons[icon];
+const iconPath = iconStyle === IconStyle.solid ? iconPaths.solid : iconPaths.outline;
+
+const fill = iconStyle === IconStyle.solid ? `currentColor` : 'none';
+const stroke = iconStyle === IconStyle.solid ? 'none' : `currentColor`;
+---
+
+<svg
+  class:list={[className]}
+  data-testid={`icon-${id}`}
+  viewBox="0 0 24 24"
+  xmlns="http://www.w3.org/2000/svg"
+  stroke-width={strokeWidth}
+  focusable="false"
+  aria-hidden="true"
+  style={style}
+  id={id}
+>
+  <path fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" d={iconPath}></path>
+</svg>
+
+<style
+  define:vars={{
+    fill,
+    stroke,
+  }}
+>
+  svg {
+    color: var(--icon-color, currentColor);
+
+    transform: translateX(var(--icon-transform, 0));
+
+    transition-timing-function: var(--ease-elastic-in-out-3);
+    transition-duration: 300ms;
+    transition-property: fill stroke transform;
+  }
+
+  path {
+    fill: var(--fill);
+    stroke: var(--stroke);
+  }
+</style>

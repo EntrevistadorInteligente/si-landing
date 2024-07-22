@@ -10,6 +10,11 @@ interface Props extends HTMLAttributes<'button'>, ButtonVariants {
   class?: string;
 
   /**
+   * href to be used when the button is an anchor tag.
+   */
+  href?: string;
+
+  /**
    * Specifies whether the button is disabled, preventing user interaction and altering its appearance.
    */
   isDisabled?: boolean;
@@ -34,14 +39,17 @@ const {
   isFullRounded = false,
   isOnlyIcon = false,
   isInvert,
+  href,
 } = Astro.props;
 
 const classes = {
   container: cn(button({ variant, size, isFullWidth, isFullRounded, isOnlyIcon, isInvert, isDisabled }), className),
 };
+
+const Element = href ? 'a' : 'button';
 ---
 
 <!-- TODO: Implement Icons and Anchor Tag -->
-<button class={classes.container} disabled={isDisabled}>
+<Element href={href} class={classes.container} disabled={isDisabled}>
   <slot />
-</button>
+</Element>

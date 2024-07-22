@@ -1,0 +1,25 @@
+---
+import { cn } from '@common';
+import { tagStyle, type TagVariants } from './Tag.style';
+
+interface Props extends TagVariants {
+  /**
+   * Additional classes for the button, typically used for styling.
+   */
+  class?: string;
+
+  /**
+   * The id of the tag.
+   */
+  id?: string;
+}
+
+const { variant = 'purple', size, hasBorder, class: className } = Astro.props;
+const classes = {
+  container: cn(tagStyle({ variant, size, hasBorder, className })),
+};
+---
+
+<span class={classes.container} role="status">
+  <slot />
+</span>

@@ -1,0 +1,50 @@
+---
+import { IMAGES_PATH } from '@common';
+import { Tag } from '@components';
+---
+
+<section class="my-20" aria-labelledby="quienes-somos-titulo">
+  <div class="container mx-auto px-4">
+    <div class="grid items-center gap-20 lg:grid-cols-2">
+      <img
+        src={`${IMAGES_PATH}/who-we-are_01.png`}
+        alt="Estación de trabajo moderna y ordenada con un monitor grande, un teclado y un ratón en un escritorio blanco. El monitor muestra una imagen de un paisaje desértico bajo un cielo azul. La iluminación LED azul resalta el contorno del escritorio y la pared. A la izquierda, hay una lámpara de escritorio y una estatuilla pequeña. Una laptop está colocada en un soporte elevador detrás del monitor."
+        class="w-full"
+      />
+      <div class="grid h-fit gap-12">
+        <!-- Title and Description -->
+        <div>
+          <h2 id="quienes-somos-titulo" class="section-title mb-8">¿Quiénes Somos?</h2>
+          <p class="text-xl">
+            Somos una plataforma que ayuda a desarrolladores a prepararse para entrevistas en tecnología, con el objetivo de ofrecer un
+            servicio excepcionalmente útil y cautivador.
+          </p>
+        </div>
+
+        <!-- Tag Section -->
+        <div>
+          <p class="mb-4 text-xl">Aunque crecemos rápidamente, mantenemos nuestros valores fundamentales</p>
+
+          <div class="wrap flex gap-2 max-sm:flex-wrap">
+            <Tag size="sm" hasBorder>Colaboración</Tag>
+            <Tag size="sm" hasBorder>Innovación</Tag>
+            <Tag size="sm" hasBorder>Satisfacción del cliente</Tag>
+          </div>
+        </div>
+
+        <!-- Two columns text -->
+        <div class="grid gap-6 lg:grid-cols-2">
+          <div>
+            <h3 class="mb-4 text-2xl font-bold">Marca Versátil</h3>
+            <p>Estamos creando una plataforma digital que se adapta a los desarrolladores en todas las etapas de su carrera.</p>
+          </div>
+
+          <div>
+            <h3 class="mb-4 text-2xl font-bold">Agencia Digital</h3>
+            <p>Creemos en la innovación al combinar ideas simples con soluciones tecnológicas avanzadas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

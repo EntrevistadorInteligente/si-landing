@@ -1,4 +1,8 @@
 ---
+import { MainFooter } from '@components';
+
+import '../styles/main.css';
+
 interface Props {
   /**
   /**
@@ -20,7 +24,9 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="font-sans">
+  <body class="grid h-[100dvh] grid-rows-[auto_1fr_auto] font-sans">
+    <header>Header</header>
     <slot />
+    <MainFooter />
   </body>
 </html>

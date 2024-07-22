@@ -1,0 +1,25 @@
+---
+import { IMAGES_PATH } from '@common';
+import { Button } from '@components';
+---
+
+<section class="my-20 text-center" aria-labelledby="main-heading">
+  <div class="container mx-auto px-4">
+    <h1 id="main-heading" class="mx-auto max-w-[29ch] text-fluid-3xl font-medium leading-tight">
+      Analiza tu CV, evalúa ofertas laborales y obtén feedback inmediato
+    </h1>
+    <p class="mt-12 text-fluid-lg font-bold">¡Adelante nosotros creemos en tí, tú puedes!</p>
+    <div class="mx-auto mt-6 flex w-fit gap-4 max-sm:flex-wrap max-sm:justify-center">
+      <!-- TODO: Update href -->
+      <Button href="/registrarme" isInvert>Registrarme</Button>
+      <Button href="/demo">Demo</Button>
+    </div>
+
+    <!-- Add the Dots later on -->
+    <img
+      class="mx-auto mt-20 w-full max-w-4xl"
+      src={`${IMAGES_PATH}/hero.png`}
+      alt='Captura de pantalla de una interfaz llamada "Zona Entrevista" con un formulario para ingresar datos de una oferta, como empresa, antigüedad, perfil, país y descripción de la vacante. A la izquierda, hay un menú con opciones de inicio, zona entrevista y perfil, y una sección de ayuda en la parte inferior izquierda.'
+    />
+  </div>
+</section>

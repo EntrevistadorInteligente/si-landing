@@ -1,0 +1,82 @@
+---
+import { DISCORD_URL, GITHUB_URL, type GithubContributor } from '@common';
+import { Button, Icon } from '@components';
+
+// TODO: Update with the actual Contributors
+const respDevs = await fetch('https://api.github.com/repos/EntrevistadorInteligente/si-landing/contributors');
+const dataDevs: Array<GithubContributor> = await respDevs.json();
+---
+
+<section class="mb-20 mt-32" aria-labelledby="contribuidores-titutlo">
+  <div class="container mx-auto px-4">
+    <div class="grid place-items-center gap-6">
+      <!-- Title Section -->
+      <h2 id="contribuidores-titutlo" class="section-title text-center">Contribuidores</h2>
+
+      <!-- Contributor Section -->
+      <div class="wrap flex w-full max-w-5xl justify-center" role="list">
+        {
+          dataDevs.map((contributor) => (
+            <a
+              href={contributor.html_url}
+              target="_blank"
+              class="relative ml-[-10px] hover:z-50"
+              title={contributor.login}
+              aria-label={`Perfil de GitHub de ${contributor.login}`}
+            >
+              <img
+                src={contributor.avatar_url}
+                class="h-16 w-16 cursor-pointer rounded-full border border-gray-900 object-cover transition-transform duration-700 ease-elastic hover:scale-125"
+                alt={`Avatar de ${contributor.login}`}
+              />
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- Button section -->
+      <div class="mt-3.5 flex items-center gap-2 max-sm:flex-wrap max-sm:justify-center">
+        <Button href={DISCORD_URL} isInvert class="flex gap-4">
+          <Icon icon="discord" class="h-6 w-6" />
+          <span> Discord </span>
+        </Button>
+
+        <Button href={GITHUB_URL} class="flex gap-2">
+          <Icon iconStyle="solid" icon="gitHub" class="h-5 w-5" />
+          <span> Github</span>
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  a::after {
+    content: attr(title);
+    position: absolute;
+    inset-block-end: 113%;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background-color: hsla(245, 59%, 59%, 0.8);
+    color: hsl(0, 0%, 100%);
+    padding: 0.3125rem;
+    border-radius: 0.3125rem;
+    font-size: 0.75rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 300ms;
+    pointer-events: none;
+    font-weight: 700;
+  }
+
+  a:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  a:focus::after {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
