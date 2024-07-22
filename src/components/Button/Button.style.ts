@@ -20,15 +20,15 @@ export const button = cva(
         false: false,
       },
       size: {
-        sm: 'h-9 px-4 py-1 text-xs font-semibold',
-        md: 'h-10 px-6 py-2.5 text-xs font-semibold',
-        lg: 'h-11 px-8 py-2 text-base font-semibold',
-        xl: 'h-12 px-10 py-3 text-base font-semibold',
+        sm: 'h-9 px-10 py-1 text-base font-semibold',
+        md: 'h-10 px-10 py-2.5 text-base font-semibold',
+        lg: 'h-11 px-10 py-2 text-lg font-semibold',
+        xl: 'h-12 px-10 py-3 text-lg font-semibold',
         '2xl': 'h-[3.75rem] px-12 py-2 text-lg font-semibold',
       },
       isFullRounded: {
         true: 'rounded-full',
-        false: 'rounded-lg',
+        false: 'rounded-[4px]',
       },
       isFullWidth: {
         true: 'w-full',
@@ -47,12 +47,12 @@ export const button = cva(
       {
         isInvert: true,
         variant: 'primary',
-        class: 'border-2 border-primary-600 bg-transparent text-primary-600',
+        class: 'border border-primary-600 bg-transparent text-primary-600',
       },
       {
         isInvert: true,
         variant: 'neutral',
-        class: 'border-2 border-neutral-900 bg-transparent text-black',
+        class: 'border border-neutral-900 bg-transparent text-black',
       },
       {
         isOnlyIcon: true,
