@@ -1,4 +1,5 @@
 ---
+import { IMAGES_PATH } from '@common';
 import { Button } from '@components';
 ---
 
@@ -6,7 +7,7 @@ import { Button } from '@components';
   <div class="container mx-auto px-4">
     <div class="grid place-items-center gap-4">
       <h2 id="entrevista-titulo" class="section-title mb-8 text-center">Una muestra de las entrevista</h2>
-      <img src="/assets/images/feature_01.png" alt="Muestra de la entrevista" class="mx-auto w-full max-w-[860px]" />
+      <img src={`${IMAGES_PATH}/feature_01.png`} alt="Muestra de la entrevista" class="mx-auto w-full max-w-[860px]" />
       <Button>Probar</Button>
     </div>
   </div>

@@ -1,11 +1,12 @@
 ---
+import { IMAGES_PATH } from '@common';
 import { Tag } from '@components';
 ---
 
 <section class="my-20" aria-labelledby="quienes-somos-titulo">
   <div class="container mx-auto px-4">
     <div class="grid items-center gap-20 lg:grid-cols-2">
-      <img src="/assets/images/who-we-are_01.png" alt="Imagen representativa de quiénes somos" class="w-full" />
+      <img src={`${IMAGES_PATH}/who-we-are_01.png`} alt="Imagen representativa de quiénes somos" class="w-full" />
       <div class="grid h-fit gap-12">
         <!-- Title and Description -->
         <div>
@@ -20,7 +21,7 @@ import { Tag } from '@components';
         <div>
           <p class="mb-4 text-xl">Aunque crecemos rápidamente, mantenemos nuestros valores fundamentales</p>
 
-          <div class="wrap flex gap-2">
+          <div class="wrap flex gap-2 max-sm:flex-wrap">
             <Tag size="sm" hasBorder>Colaboración</Tag>
             <Tag size="sm" hasBorder>Innovación</Tag>
             <Tag size="sm" hasBorder>Satisfacción del cliente</Tag>
@@ -28,7 +29,7 @@ import { Tag } from '@components';
         </div>
 
         <!-- Two columns text -->
-        <div class="grid grid-cols-2 gap-6">
+        <div class="grid gap-6 lg:grid-cols-2">
           <div>
             <h3 class="mb-4 text-2xl font-bold">Marca Versátil</h3>
             <p>Estamos creando una plataforma digital que se adapta a los desarrolladores en todas las etapas de su carrera.</p>

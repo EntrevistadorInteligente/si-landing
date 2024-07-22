@@ -1,4 +1,5 @@
 ---
+import { IMAGES_PATH } from '@common';
 import { HorizontalCard } from '@components';
 ---
 
@@ -9,14 +10,14 @@ import { HorizontalCard } from '@components';
     <HorizontalCard
       title="Análisis CV"
       description="Analizamos tu CV mediante Inteligencia Artificial (IA) y con ello podemos saber tu nivel de experiencia laboral y habilidades."
-      imgUrl="/assets/images/services_01.png"
+      imgUrl={`${IMAGES_PATH}/services_01.png`}
       imgAltText=""
     />
 
     <HorizontalCard
       title="Ofertas"
       description="Aquí es donde vas a llenar un formulario con la descripción del empleo para preparar el camino a tu entrevista, brindándote confianza y seguridad."
-      imgUrl="/assets/images/services_02.png"
+      imgUrl={`${IMAGES_PATH}/services_02.png`}
       imgAltText=""
       isInvert
       variant="yellow"
@@ -25,7 +26,7 @@ import { HorizontalCard } from '@components';
     <HorizontalCard
       title="Entrevista"
       description="Para garantizar la entrevista, hemos asegurado que la información clave, como habilidades y experiencia, coincida en ambos documentos."
-      imgUrl="/assets/images/services_03.png"
+      imgUrl={`${IMAGES_PATH}/services_03.png`}
       imgAltText=""
       variant="green"
     />
@@ -33,7 +34,7 @@ import { HorizontalCard } from '@components';
     <HorizontalCard
       title="Feedback"
       description="Una vez completada la entrevista te haremos el feedback de la entrevista y sabrás tus fortalezas y cosas por mejorar."
-      imgUrl="/assets/images/services_04.png"
+      imgUrl={`${IMAGES_PATH}/services_04.png`}
       imgAltText=""
       isInvert
       variant="blue"
