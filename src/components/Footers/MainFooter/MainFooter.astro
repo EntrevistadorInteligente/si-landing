@@ -1,0 +1,56 @@
+---
+import { cn, DISCORD_URL, IMAGES_PATH, LINKEDIN_URL, PRIVACY_POLICY_PATH, TERMS_AND_CONDITIONS_PATH, TWITCH_URL } from '@common';
+import { Icon } from '@components';
+
+interface Props {
+  /**
+   * Additional classes for the MainFooter, typically used for styling.
+   */
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+const currentYear = new Date().getFullYear();
+
+const classes = {
+  container: cn('py-6', 'border-t border-primary-600', className),
+};
+---
+
+<footer class={classes.container} aria-labelledby="titulo-de-footer">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between max-sm:flex-col">
+      <!-- Social Media Section -->
+      <div class="flex items-center justify-center gap-4 max-sm:flex-wrap">
+        <img src={`${IMAGES_PATH}/footer_01.png`} alt="Logo de Entrevistador Inteligente" class="max-h-14 max-w-14" />
+        <div>
+          <p id="titulo-de-footer">Redes sociales</p>
+          <div class="mt-2 flex items-center gap-4">
+            <a href={DISCORD_URL} class="text-black transition-colors hover:text-primary-600" aria-label="Discord">
+              <Icon icon="discord" class="h-5 w-5 transition-transform hover:scale-110" iconStyle="solid" />
+            </a>
+
+            <a href={TWITCH_URL} class="text-black transition-colors hover:text-primary-600" aria-label="Twitch">
+              <Icon icon="twitch" class="h-5 w-5 transition-transform hover:scale-110" iconStyle="solid" />
+            </a>
+
+            <a href={LINKEDIN_URL} class="text-black transition-colors hover:text-primary-600" aria-label="LinkedIn">
+              <Icon icon="linkedIn" class="h-5 w-5 transition-transform hover:scale-110" iconStyle="solid" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legal Links Section -->
+      <div class="grid gap-4 text-center max-md:mt-10 md:text-right">
+        <a href={TERMS_AND_CONDITIONS_PATH} class="text-sm font-bold text-neutral-800 transition-colors hover:text-neutral-600"
+          >Términos de servicio</a
+        >
+        <a href={PRIVACY_POLICY_PATH} class="text-sm font-bold text-neutral-800 transition-colors hover:text-neutral-600"
+          >Políticas de privacidad</a
+        >
+      </div>
+    </div>
+    <p class="mt-7 text-center">Copyright {currentYear} © Entrevistador Inteligente</p>
+  </div>
+</footer>
