@@ -1,6 +1,6 @@
 ---
 import type { GithubContributor } from '@common';
-import { Button } from '@components';
+import { Button, Icon } from '@components';
 
 // TODO: Update with the actual Contributors
 const respDevs = await fetch('https://api.github.com/repos/EntrevistadorInteligente/si-landing/contributors');
@@ -35,9 +35,16 @@ const dataDevs: Array<GithubContributor> = await respDevs.json();
       </div>
 
       <!-- Button section -->
-      <div class="mt-3.5 flex items-center gap-4">
-        <Button isInvert>Discord</Button>
-        <Button>Github</Button>
+      <div class="mt-3.5 flex items-center gap-2">
+        <Button isInvert class="flex gap-4">
+          <Icon icon="discord" class="h-6 w-6" />
+          <span> Discord </span>
+        </Button>
+
+        <Button class="flex gap-2">
+          <Icon iconStyle="solid" icon="gitHub" class="h-5 w-5" />
+          <span> Github</span>
+        </Button>
       </div>
     </div>
   </div>
