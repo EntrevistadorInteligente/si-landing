@@ -1,0 +1,5 @@
+@layer utilities {
+  .section-title {
+    @apply text-fluid-xl font-bold leading-tight text-black;
+  }
+}
