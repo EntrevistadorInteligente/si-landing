@@ -1,5 +1,5 @@
 ---
-import type { GithubContributor } from '@common';
+import { DISCORD_URL, GITHUB_URL, type GithubContributor } from '@common';
 import { Button, Icon } from '@components';
 
 // TODO: Update with the actual Contributors
@@ -36,12 +36,12 @@ const dataDevs: Array<GithubContributor> = await respDevs.json();
 
       <!-- Button section -->
       <div class="mt-3.5 flex items-center gap-2 max-sm:flex-wrap max-sm:justify-center">
-        <Button isInvert class="flex gap-4">
+        <Button href={DISCORD_URL} isInvert class="flex gap-4">
           <Icon icon="discord" class="h-6 w-6" />
           <span> Discord </span>
         </Button>
 
-        <Button class="flex gap-2">
+        <Button href={GITHUB_URL} class="flex gap-2">
           <Icon iconStyle="solid" icon="gitHub" class="h-5 w-5" />
           <span> Github</span>
         </Button>
