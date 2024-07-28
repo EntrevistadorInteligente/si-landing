@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 #.lock
 pnpm-lock.yaml
+/package-lock.json
