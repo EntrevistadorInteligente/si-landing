@@ -1,0 +1,32 @@
+---
+import { MainFooter } from '@components';
+
+import '../styles/main.css';
+
+interface Props {
+  /**
+  /**
+   * Represents the title of the page.
+   */
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/es/pagina-principal/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="grid h-[100dvh] grid-rows-[auto_1fr_auto] font-sans">
+    <header>Header</header>
+    <slot />
+    <MainFooter />
+  </body>
+</html>

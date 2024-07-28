@@ -1,0 +1,56 @@
+---
+import { cn } from '@common';
+import { Tag } from '@components';
+import type { TagVariants } from 'components/Tag/Tag.style';
+
+interface Props extends Omit<TagVariants, 'size'> {
+  /**
+   * Additional classes for the HorizontalCard component
+   * typically used for styling.
+   */
+  class?: string;
+
+  /**
+   * The title of the HorizontalCard component.
+   */
+  title: string;
+
+  /**
+   * The description of the HorizontalCard component.
+   */
+  description: string;
+
+  /**
+   * The image URL of the HorizontalCard component.
+   */
+  imgUrl: string;
+
+  /**
+   * The alt text for the image in the HorizontalCard component.
+   */
+  imgAltText: string;
+
+  /**
+   * If true, inverts the position of the elements in the HorizontalCard component.
+   */
+  isInvert?: boolean;
+}
+
+const { title, description, imgUrl, imgAltText, isInvert, variant: TagVariant, class: className } = Astro.props;
+const classes = {
+  container: cn('grid items-center gap-16 md:grid-cols-2', 'py-20', className),
+  textContent: cn({
+    'md:order-2': isInvert,
+  }),
+  img: cn('h-full w-full object-cover'),
+  description: cn('mt-6 text-fluid-base font-medium'),
+};
+---
+
+<article class={classes.container} role="region" aria-labelledby="card-title">
+  <div class={classes.textContent}>
+    <Tag variant={TagVariant} size="md" id="card-title">{title}</Tag>
+    <p class={classes.description}>{description}</p>
+  </div>
+  <img src={imgUrl} alt={imgAltText} class={classes.img} />
+</article>

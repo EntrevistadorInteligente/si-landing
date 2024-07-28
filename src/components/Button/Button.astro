@@ -1,0 +1,55 @@
+---
+import { cn } from '@common';
+import type { HTMLAttributes } from 'astro/types';
+import { button, type ButtonVariants } from './Button.style';
+
+interface Props extends HTMLAttributes<'button'>, ButtonVariants {
+  /**
+   * Additional classes for the button, typically used for styling.
+   */
+  class?: string;
+
+  /**
+   * href to be used when the button is an anchor tag.
+   */
+  href?: string;
+
+  /**
+   * Specifies whether the button is disabled, preventing user interaction and altering its appearance.
+   */
+  isDisabled?: boolean;
+
+  /**
+   * Icon displayed in the button, can be before or after the text based on `iconPosition`.
+   */
+  icon?: string;
+
+  /**
+   * Determines the position of the icon relative to the text within the button, either `before` or `after`.
+   */
+  iconPosition?: 'left' | 'right';
+}
+
+const {
+  variant,
+  size,
+  class: className,
+  isDisabled,
+  isFullWidth = false,
+  isFullRounded = false,
+  isOnlyIcon = false,
+  isInvert,
+  href,
+} = Astro.props;
+
+const classes = {
+  container: cn(button({ variant, size, isFullWidth, isFullRounded, isOnlyIcon, isInvert, isDisabled }), className),
+};
+
+const Element = href ? 'a' : 'button';
+---
+
+<!-- TODO: Implement Icons and Anchor Tag -->
+<Element href={href} class={classes.container} disabled={isDisabled}>
+  <slot />
+</Element>
