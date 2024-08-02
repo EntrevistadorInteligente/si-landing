@@ -1,12 +1,10 @@
 ---
-import { IMAGES_PATH } from '@common';
 import { Button } from '@components';
 
 const ANGULAR_APP_URL = import.meta.env.ANGULAR_APP_URL || 'http://localhost:4200/es/entrevistas';
-
 ---
 
-<section class="my-20 text-center" aria-labelledby="main-heading">
+<section class="relative my-20 text-center" aria-labelledby="main-heading">
   <div class="container mx-auto px-4">
     <h1 id="main-heading" class="mx-auto max-w-[29ch] text-fluid-3xl font-medium leading-tight">
       Analiza tu CV, evalúa ofertas laborales y obtén feedback inmediato
@@ -14,17 +12,68 @@ const ANGULAR_APP_URL = import.meta.env.ANGULAR_APP_URL || 'http://localhost:420
     <p class="mt-12 text-fluid-lg font-bold">¡Adelante nosotros creemos en tí, tú puedes!</p>
     <div class="mx-auto mt-6 flex w-fit gap-4 max-sm:flex-wrap max-sm:justify-center">
       <!-- TODO: Update href -->
-      <Button href={`${ANGULAR_APP_URL}/login`}>
-        Registrarme / Iniciar sesión
-      </Button>
+      <Button href={`${ANGULAR_APP_URL}/login`}>Registrarme</Button>
       <Button href="/demo">Demo</Button>
     </div>
 
     <!-- Add the Dots later on -->
-    <img
-      class="mx-auto mt-20 w-full max-w-4xl"
-      src={`${IMAGES_PATH}/hero.png`}
-      alt='Captura de pantalla de una interfaz llamada "Zona Entrevista" con un formulario para ingresar datos de una oferta, como empresa, antigüedad, perfil, país y descripción de la vacante. A la izquierda, hay un menú con opciones de inicio, zona entrevista y perfil, y una sección de ayuda en la parte inferior izquierda.'
-    />
+    <div class="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      <div
+        class="bg-gradient-radial-purple animate-float-purple absolute -left-1/4 -top-1/4 h-[300px] w-[300px] rounded-full blur-[60px] sm:h-[350px] sm:w-[350px] md:h-[400px] md:w-[400px]"
+      >
+      </div>
+      <div
+        class="bg-gradient-radial-yellow animate-float-yellow absolute -bottom-1/4 -right-1/4 h-[300px] w-[300px] rounded-full blur-[60px] sm:h-[350px] sm:w-[350px] md:h-[400px] md:w-[400px]"
+      >
+      </div>
+    </div>
+
+    <video class="relative z-10 mx-auto mt-20 w-full max-w-4xl rounded-[16px] object-cover" loop autoplay muted>
+      <source src="pagina-principal/assets/videos/cover.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
   </div>
 </section>
+
+<style>
+  @keyframes float-yellow {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes float-purple {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float-purple {
+    animation: float-purple 3s infinite ease-in-out;
+    top: 45%;
+    left: 20%;
+  }
+
+  .animate-float-yellow {
+    animation: float-yellow 4s infinite ease-in-out;
+    bottom: 25%;
+    right: 20%;
+  }
+
+  /* Custom CSS for radial gradient */
+  .bg-gradient-radial-yellow {
+    background: radial-gradient(circle, #f5c744 0%, rgba(245, 246, 253, 0) 100%);
+  }
+
+  .bg-gradient-radial-purple {
+    background: radial-gradient(circle, #6464df 0%, rgba(245, 246, 253, 0) 100%);
+  }
+</style>
