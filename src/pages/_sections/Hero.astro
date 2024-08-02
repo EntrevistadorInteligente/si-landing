@@ -1,9 +1,6 @@
 ---
-import { IMAGES_PATH } from '@common';
+import { ANGULAR_APP_URL, IMAGES_PATH } from '@common';
 import { Button } from '@components';
-
-const ANGULAR_APP_URL = import.meta.env.ANGULAR_APP_URL || 'http://localhost:4200/es/entrevistas';
-
 ---
 
 <section class="my-20 text-center" aria-labelledby="main-heading">
@@ -13,10 +10,7 @@ const ANGULAR_APP_URL = import.meta.env.ANGULAR_APP_URL || 'http://localhost:420
     </h1>
     <p class="mt-12 text-fluid-lg font-bold">¡Adelante nosotros creemos en tí, tú puedes!</p>
     <div class="mx-auto mt-6 flex w-fit gap-4 max-sm:flex-wrap max-sm:justify-center">
-      <!-- TODO: Update href -->
-      <Button href={`${ANGULAR_APP_URL}/login`}>
-        Registrarme / Iniciar sesión
-      </Button>
+      <Button href={`${ANGULAR_APP_URL}/login`} isInvert> Registrarme </Button>
       <Button href="/demo">Demo</Button>
     </div>
 
