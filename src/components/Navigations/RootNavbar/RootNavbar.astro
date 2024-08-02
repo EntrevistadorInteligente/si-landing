@@ -10,13 +10,13 @@ import { Button, Icon } from '@components';
     <a href={HOME_PATH} class="z-50">
       <img src={`${IMAGES_PATH}/footer_01.png`} alt="" class="max-h-12 max-w-12 lg:max-h-8 lg:max-w-8" />
     </a>
-    <nav id="navigation" class="lg:flex lg:items-center lg:gap-12" data-state="active">
+    <nav id="navigation" class="lg:flex lg:items-center lg:gap-12" data-state="inactive">
       <ul class="flex items-center gap-9 text-[#2D323E]">
-        <li><a href={HOME_PATH}>Inicio</a></li>
-        <li><a href={SERVICES_PATH}>Servicios</a></li>
-        <li><a href={SAMPLE_PATH}>Muestra</a></li>
-        <li><a href={WHO_WE_ARE_PATH}>¿Quienes somos?</a></li>
-        <li><a href={COMMUNITY_PATH}>Comunidad</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={HOME_PATH}>Inicio</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={SERVICES_PATH}>Servicios</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={SAMPLE_PATH}>Muestra</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={WHO_WE_ARE_PATH}>¿Quienes somos?</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={COMMUNITY_PATH}>Comunidad</a></li>
       </ul>
       <div class="button-container | flex items-center gap-4 max-lg:mt-10 max-lg:flex-wrap max-lg:justify-center max-lg:px-8">
         <Button size="sm" href={`${ANGULAR_APP_URL}/login`} isInvert>Registrarme</Button>
