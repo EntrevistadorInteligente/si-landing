@@ -1,0 +1,101 @@
+---
+import { ANGULAR_APP_URL, COMMUNITY_PATH, HOME_PATH, IMAGES_PATH, SAMPLE_PATH, SERVICES_PATH, WHO_WE_ARE_PATH } from '@common';
+import { Button, Icon } from '@components';
+---
+
+<header class="mt-6">
+  <div
+    class="container relative mx-auto flex items-center justify-between gap-12 rounded-lg px-4 py-2 shadow-lg lg:w-fit lg:justify-center"
+  >
+    <a href={HOME_PATH} class="z-50">
+      <img src={`${IMAGES_PATH}/footer_01.png`} alt="" class="max-h-12 max-w-12 lg:max-h-8 lg:max-w-8" />
+    </a>
+    <nav id="navigation" class="lg:flex lg:items-center lg:gap-12" data-state="inactive">
+      <ul class="flex items-center gap-9 text-[#2D323E]">
+        <li><a class="transition-colors hover:text-neutral-400" href={HOME_PATH}>Inicio</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={SERVICES_PATH}>Servicios</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={SAMPLE_PATH}>Muestra</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={WHO_WE_ARE_PATH}>¿Quienes somos?</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={COMMUNITY_PATH}>Comunidad</a></li>
+      </ul>
+      <div class="button-container | flex items-center gap-4 max-lg:mt-10 max-lg:flex-wrap max-lg:justify-center max-lg:px-8">
+        <Button size="sm" href={`${ANGULAR_APP_URL}/login`} isInvert>Registrarme</Button>
+        <Button size="sm" href="/demo">Demo</Button>
+      </div>
+    </nav>
+    <Button id="burger-button" isInvert variant="neutral" class="z-50 border-0 p-4 shadow-none lg:hidden">
+      <Icon icon="burger" class="h-10 w-10" />
+    </Button>
+  </div>
+</header>
+
+<style>
+  @media not all and (min-width: 1024px) {
+    nav {
+      position: absolute;
+      z-index: 20;
+      margin-block-start: 2.5rem;
+      background-color: white;
+      padding-block: 1rem;
+      inset-inline: 0;
+      inset-block-start: 0;
+      block-size: 100dvh;
+      inline-size: 100%;
+    }
+    nav[data-state='inactive'] {
+      background-color: white;
+      inset-block: 0;
+      padding-block: 1rem;
+      opacity: 0;
+      transform: translateY(-200%);
+    }
+
+    nav[data-state='active'] {
+      transform: translateY(0%);
+      transition:
+        transform 400ms,
+        opacity 400ms;
+      transition-timing-function: linear(
+        0,
+        0.006,
+        0.025 2.8%,
+        0.101 6.1%,
+        0.539 18.9%,
+        0.721 25.3%,
+        0.849 31.5%,
+        0.937 38.1%,
+        0.968 41.8%,
+        0.991 45.7%,
+        1.006 50.1%,
+        1.015 55%,
+        1.017 63.9%,
+        1.001
+      );
+    }
+
+    nav ul {
+      flex-direction: column;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      background-color: white;
+      border-radius: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    nav .button-container {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const burgerButton = document.querySelector('#burger-button');
+  const nav = document.querySelector('#navigation');
+
+  burgerButton?.addEventListener('click', () => {
+    const state = nav?.getAttribute('data-state');
+    nav?.setAttribute('data-state', state === 'active' ? 'inactive' : 'active');
+  });
+</script>

@@ -28,6 +28,11 @@ interface Props extends HTMLAttributes<'button'>, ButtonVariants {
    * Determines the position of the icon relative to the text within the button, either `before` or `after`.
    */
   iconPosition?: 'left' | 'right';
+
+  /**
+   * The id of the button component.
+   */
+  id?: string;
 }
 
 const {
@@ -40,6 +45,7 @@ const {
   isOnlyIcon = false,
   isInvert,
   href,
+  id,
 } = Astro.props;
 
 const classes = {
@@ -50,6 +56,6 @@ const Element = href ? 'a' : 'button';
 ---
 
 <!-- TODO: Implement Icons and Anchor Tag -->
-<Element href={href} class={classes.container} disabled={isDisabled}>
+<Element id={id} href={href} class={classes.container} disabled={isDisabled}>
   <slot />
 </Element>
