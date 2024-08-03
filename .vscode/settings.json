@@ -1,6 +1,6 @@
 {
   // Conventional Commits Settings
-  "conventionalCommits.scopes": ["config", "common", "components", "content", "data", "layouts", "pages", "styles"],
+  "conventionalCommits.scopes": ["config", "common", "components", "content", "data", "layouts", "pages", "styles", "dependencies"],
 
   // Explorer Settings
   "explorer.fileNesting.enabled": true,
