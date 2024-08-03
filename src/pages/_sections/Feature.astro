@@ -1,5 +1,5 @@
 ---
-import { IMAGES_PATH } from '@common';
+import { VIDEOS_PATH } from '@common';
 import { Button } from '@components';
 ---
 
@@ -7,12 +7,10 @@ import { Button } from '@components';
   <div class="container mx-auto px-4">
     <div class="grid place-items-center gap-4">
       <h2 id="entrevista-titulo" class="section-title mb-8 text-center">Una muestra de las entrevista</h2>
-      <img
-        src={`${IMAGES_PATH}/feature_01.png`}
-        alt='Captura de pantalla de una interfaz de entrevista con tres pestañas de preguntas. La primera pestaña está seleccionada con la pregunta: "¿Cuéntanos sobre tu experiencia previa en el diseño y desarrollo de microservicios escalables utilizando Spring Boot y el Patrón de Arquitectura de Microservicios?". Debajo, hay un campo de texto etiquetado como "Respuesta" para que el usuario ingrese su respuesta. En la parte inferior, hay una sección de "Feedback" en azul con una retroalimentación sobre la respuesta del usuario.
-'
-        class="mx-auto w-full max-w-[860px]"
-      />
+      <video class="relative z-10 mx-auto mt-20 w-full max-w-[860px] rounded-[16px] object-cover" loop autoplay muted>
+        <source src={`${VIDEOS_PATH}/demo.mp4`} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <!-- TODO: UPDATE URL -->
       <Button href="/test">Probar</Button>
     </div>
