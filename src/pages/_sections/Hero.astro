@@ -15,9 +15,63 @@ import { Button } from '@components';
     </div>
 
     <!-- Add the Dots later on -->
+    <div class="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      <div
+        class="bg-gradient-radial-purple animate-float-purple absolute -left-1/4 -top-1/4 h-[300px] w-[300px] rounded-full blur-[60px] sm:h-[350px] sm:w-[350px] md:h-[400px] md:w-[400px]"
+      >
+      </div>
+      <div
+        class="bg-gradient-radial-yellow animate-float-yellow absolute -bottom-1/4 -right-1/4 h-[300px] w-[300px] rounded-full blur-[60px] sm:h-[350px] sm:w-[350px] md:h-[400px] md:w-[400px]"
+      >
+      </div>
+    </div>
+
     <video class="relative z-10 mx-auto mt-20 w-full max-w-4xl rounded-[16px] object-cover" loop autoplay muted>
       <source src={`${VIDEOS_PATH}/cover.mp4`} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </div>
 </section>
+
+<style>
+  @keyframes float-yellow {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes float-purple {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float-purple {
+    animation: float-purple 3s infinite ease-in-out;
+    top: 55%;
+    left: 15%;
+  }
+
+  .animate-float-yellow {
+    animation: float-yellow 4s infinite ease-in-out;
+    bottom: 15%;
+    right: 20%;
+  }
+
+  /* Custom CSS for radial gradient */
+  .bg-gradient-radial-yellow {
+    background: radial-gradient(circle, #f5c744 0%, rgba(245, 246, 253, 0) 100%);
+  }
+
+  .bg-gradient-radial-purple {
+    background: radial-gradient(circle, #6464df 0%, rgba(245, 246, 253, 0) 100%);
+  }
+</style>
