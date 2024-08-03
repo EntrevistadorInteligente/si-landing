@@ -23,26 +23,28 @@ interface Props extends Omit<TagVariants, 'size'> {
   /**
    * The image URL of the HorizontalCard component.
    */
-  imgUrl: string;
+  imgUrl?: string;
 
   /**
    * The alt text for the image in the HorizontalCard component.
    */
-  imgAltText: string;
+  imgAltText?: string;
 
   /**
    * If true, inverts the position of the elements in the HorizontalCard component.
    */
   isInvert?: boolean;
+
+  videoUrl?: string;
 }
 
-const { title, description, imgUrl, imgAltText, isInvert, variant: TagVariant, class: className } = Astro.props;
+const { title, description, imgUrl, imgAltText, isInvert, videoUrl, variant: TagVariant, class: className } = Astro.props;
 const classes = {
   container: cn('grid items-center gap-16 md:grid-cols-2', 'py-20', className),
   textContent: cn({
     'md:order-2': isInvert,
   }),
-  img: cn('h-full w-full object-cover'),
+  media: cn('h-full w-full rounded-[16px] object-cover'),
   description: cn('mt-6 text-fluid-base font-medium'),
 };
 ---
@@ -52,5 +54,14 @@ const classes = {
     <Tag variant={TagVariant} size="md" id="card-title">{title}</Tag>
     <p class={classes.description}>{description}</p>
   </div>
-  <img src={imgUrl} alt={imgAltText} class={classes.img} />
+  {
+    videoUrl ? (
+      <video loop autoplay muted class={classes.media}>
+        <source src={videoUrl} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    ) : (
+      <img src={imgUrl} alt={imgAltText} class={classes.media} />
+    )
+  }
 </article>

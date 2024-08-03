@@ -1,6 +1,7 @@
 // Assets paths
 export const ASSETS_PATH = '/es/pagina-principal/assets';
 export const IMAGES_PATH = `${ASSETS_PATH}/images/`;
+export const VIDEOS_PATH = `${ASSETS_PATH}/videos/`;
 
 //App paths
 export const HOME_PATH = '/es/pagina-principal';
