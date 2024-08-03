@@ -15,6 +15,19 @@ const dataDevs: Array<GithubContributor> = await respDevs.json();
 
       <!-- Contributor Section -->
       <div class="wrap flex w-full max-w-5xl justify-center" role="list">
+        <a
+          href="https://github.com/AnaRangel"
+          target="_blank"
+          class="relative ml-[-10px] hover:z-50"
+          title="AnaRangel"
+          aria-label="Perfil de GitHub de AnaRangel"
+        >
+          <img
+            src="https://avatars.githubusercontent.com/u/30361612?v=4"
+            class="h-16 w-16 cursor-pointer rounded-full border border-gray-900 object-cover transition-transform duration-700 ease-elastic hover:scale-125"
+            alt={`Avatar de AnaRangel`}
+          />
+        </a>
         {
           dataDevs.map((contributor) => (
             <a
