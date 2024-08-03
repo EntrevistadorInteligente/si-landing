@@ -1,5 +1,5 @@
 ---
-import { IMAGES_PATH, VIDEOS_PATH } from '@common';
+import { VIDEOS_PATH } from '@common';
 import { HorizontalCard } from '@components';
 ---
 
@@ -12,16 +12,17 @@ import { HorizontalCard } from '@components';
       description="Analizamos tu CV mediante Inteligencia Artificial (IA) y con ello podemos saber tu nivel de experiencia laboral y habilidades."
       videoUrl={`${VIDEOS_PATH}/analisis_cv.mp4`}
       imgAltText='Captura de pantalla de una interfaz de prueba de prototipo. A la izquierda, hay un menú con varias opciones de prueba, incluyendo "Find our Services page", "What was your first impression...", "What would you expect to have...", "Was the Services page where...", "Organize these pages into cat...", y "Which of the following best d...". A la derecha, se muestra la prueba seleccionada con detalles como "Task", "Description", "Prototype", y "Expected path".'
+      isInvert
     />
-
-    <HorizontalCard
+    <!-- TODO: Hasta tener ofertas se ha comentado éste componente -->
+    <!-- <HorizontalCard
       title="Ofertas"
       description="Aquí es donde vas a llenar un formulario con la descripción del empleo para preparar el camino a tu entrevista, brindándote confianza y seguridad."
       imgUrl={`${IMAGES_PATH}/services_02.png`}
       imgAltText='Captura de pantalla de una interfaz de prueba de prototipo con un fondo amarillo degradado. A la izquierda, hay un menú con varias opciones de prueba, incluyendo "Find our Services page", "What was your first impression...", "What would you expect to have...", "Was the Services page where...", "Organize these pages into cat...", y "Which of the following best d...". A la derecha, se muestra la prueba seleccionada con detalles como "Task", "Description", "Prototype", y "Expected path".'
       isInvert
       variant="yellow"
-    />
+    /> -->
 
     <HorizontalCard
       title="Entrevista"
