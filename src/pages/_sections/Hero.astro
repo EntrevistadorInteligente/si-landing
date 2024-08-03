@@ -1,5 +1,5 @@
 ---
-import { ANGULAR_APP_URL, IMAGES_PATH } from '@common';
+import { ANGULAR_APP_URL, VIDEOS_PATH } from '@common';
 import { Button } from '@components';
 ---
 
@@ -15,10 +15,9 @@ import { Button } from '@components';
     </div>
 
     <!-- Add the Dots later on -->
-    <img
-      class="mx-auto mt-20 w-full max-w-4xl"
-      src={`${IMAGES_PATH}/hero.png`}
-      alt='Captura de pantalla de una interfaz llamada "Zona Entrevista" con un formulario para ingresar datos de una oferta, como empresa, antigüedad, perfil, país y descripción de la vacante. A la izquierda, hay un menú con opciones de inicio, zona entrevista y perfil, y una sección de ayuda en la parte inferior izquierda.'
-    />
+    <video class="relative z-10 mx-auto mt-20 w-full max-w-4xl rounded-[16px] object-cover" loop autoplay muted>
+      <source src={`${VIDEOS_PATH}/cover.mp4`} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
   </div>
 </section>
