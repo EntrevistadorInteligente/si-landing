@@ -1,9 +1,7 @@
 ---
-import { DISCORD_URL, GITHUB_URL, type GithubContributor } from '@common';
+import { DISCORD_URL, GITHUB_TOKEN, GITHUB_URL, type GithubContributor } from '@common';
 import { Button, Icon } from '@components';
 import { Octokit } from "@octokit/rest";
-
-const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN; // Asegúrate de configurar esta variable de entorno
 
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
@@ -62,7 +60,13 @@ const dataDevs: Array<GithubContributor> = await getAllContributors();
       </a>
         {
           dataDevs.map((contributor) => (
-            <a href={contributor.html_url} title={contributor.login}>
+          <a
+              href={contributor.html_url}
+              target="_blank"
+              class="relative ml-[-10px] hover:z-50"
+              title={contributor.login}
+              aria-label={`Perfil de GitHub de ${contributor.login}`}
+            >
               <img
                 src={contributor.avatar_url}
                 class="h-16 w-16 cursor-pointer rounded-full border border-gray-900 object-cover transition-transform duration-700 ease-elastic hover:scale-125"
