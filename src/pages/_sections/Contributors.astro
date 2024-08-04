@@ -1,10 +1,40 @@
 ---
-import { DISCORD_URL, GITHUB_URL, type GithubContributor } from '@common';
+import { DISCORD_URL, GITHUB_TOKEN, GITHUB_URL, type GithubContributor } from '@common';
 import { Button, Icon } from '@components';
+import { Octokit } from "@octokit/rest";
 
-// TODO: Update with the actual Contributors
-const respDevs = await fetch('https://api.github.com/repos/EntrevistadorInteligente/si-landing/contributors');
-const dataDevs: Array<GithubContributor> = await respDevs.json();
+const octokit = new Octokit({ auth: GITHUB_TOKEN });
+
+async function getAllContributors() {
+  try {
+    const { data: repos } = await octokit.repos.listForOrg({
+      org: "EntrevistadorInteligente",
+      type: "public"
+    });
+
+    const excludedRepos = ['admin', 'handbook', 'si-architecture-diagrams'];
+    let allContributors: any[] = [];
+
+    for (const repo of repos) {
+      if (excludedRepos.includes(repo.name)) continue;
+      
+      const { data: contributors } = await octokit.repos.listContributors({
+        owner: "EntrevistadorInteligente",
+        repo: repo.name
+      });
+
+      allContributors = [...allContributors, ...contributors];
+    }
+
+    const uniqueContributors = Array.from(new Map(allContributors.map(item => [item.id, item])).values());
+    return uniqueContributors;
+  } catch (error) {
+    console.error("Error fetching contributors:", error);
+    return [];
+  }
+}
+
+const dataDevs: Array<GithubContributor> = await getAllContributors();
 ---
 
 <section id="community" class="mb-20 mt-32" aria-labelledby="contribuidores-titutlo">
@@ -14,23 +44,23 @@ const dataDevs: Array<GithubContributor> = await respDevs.json();
       <h2 id="contribuidores-titutlo" class="section-title text-center">Contribuidores</h2>
 
       <!-- Contributor Section -->
-      <div class="wrap flex w-full max-w-5xl justify-center" role="list">
+      <div class="wrap flex w-full max-w-5xl justify-center flex-wrap" role="list">
         <a
-          href="https://github.com/AnaRangel"
-          target="_blank"
-          class="relative ml-[-10px] hover:z-50"
-          title="AnaRangel"
-          aria-label="Perfil de GitHub de AnaRangel"
-        >
-          <img
-            src="https://avatars.githubusercontent.com/u/30361612?v=4"
-            class="h-16 w-16 cursor-pointer rounded-full border border-gray-900 object-cover transition-transform duration-700 ease-elastic hover:scale-125"
-            alt={`Avatar de AnaRangel`}
-          />
-        </a>
+        href="https://github.com/AnaRangel"
+        target="_blank"
+        class="relative ml-[-10px] hover:z-50"
+        title="AnaRangel"
+        aria-label="Perfil de GitHub de AnaRangel"
+      >
+        <img
+          src="https://avatars.githubusercontent.com/u/30361612?v=4"
+          class="h-16 w-16 cursor-pointer rounded-full border border-gray-900 object-cover transition-transform duration-700 ease-elastic hover:scale-125"
+          alt={`Avatar de AnaRangel`}
+        />
+      </a>
         {
           dataDevs.map((contributor) => (
-            <a
+          <a
               href={contributor.html_url}
               target="_blank"
               class="relative ml-[-10px] hover:z-50"

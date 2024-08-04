@@ -8,7 +8,8 @@ export default defineConfig({
   base: '/es/pagina-principal',
   vite: {
     define: {
-      'process.env.ANGULAR_APP_URL': JSON.stringify(process.env.ANGULAR_APP_URL)
+      'process.env.ANGULAR_APP_URL': JSON.stringify(process.env.ANGULAR_APP_URL),
+      'process.env.GITHUB_TOKEN': JSON.stringify(process.env.GITHUB_TOKEN)
     },
   },
 });
