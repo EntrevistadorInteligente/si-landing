@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: ¿Tienes dudas o sugerencias?
+    url: https://github.com/EntrevistadorInteligente/si-landing/discussions
+    about: Si tienes dudas o sugerencias, puedes unirte a nuestra comunidad de discusión.
+  - name: ¿Tienes un problema con el proyecto?
+    url: https://github.com/EntrevistadorInteligente/si-landing/issues/new/choose
+    about: Si tienes un problema con el proyecto, puedes crear una nueva issue.
+  - name: ¿Quieres contribuir al proyecto?
+    url: https://github.com/EntrevistadorInteligente/si-landing/blob/main/CONTRIBUTING.md
+    about: Si quieres contribuir al proyecto, puedes leer nuestra guía de contribución.
