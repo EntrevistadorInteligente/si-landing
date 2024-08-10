@@ -1,0 +1,50 @@
+name: Feature request
+description: Sugiere una idea para el proyecto.
+title: '[FEATURE]: '
+labels: ['enhancement', 'triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por tomarte el tiempo de rellenar esta solicitud de características.
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Solicitud de características.
+      description: Por favor, descríbe la característica que quieres.
+      placeholder: Una descripción clara y concisa de la característica.
+      value: 'Me gustaría que [...]'
+    validations:
+      required: true
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: Propuesta de solución
+      description: Por favor, descríbelo.
+      placeholder: Una descripción clara y concisa de lo que quieres que ocurra.
+    validations:
+      required: false
+  - type: textarea
+    id: alternativa
+    attributes:
+      label: Alternativas consideradas
+      description: Por favor, descríbelas.
+      placeholder: Una descripción clara y concisa de las soluciones o características alternativas que has considerado.
+    validations:
+      required: false
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Contexto adicional
+      description: Por favor, descríbelo.
+      placeholder: Añade aquí cualquier otro contexto o capturas de pantalla sobre la solicitud de función.
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Código de Conducta
+      description: Al enviar esta solicitud, aceptas seguir nuestro [Código de Conducta](#).
+      options:
+        - label: Estoy de acuerdo con el código de conducta.
+          required: true
