@@ -18,11 +18,40 @@ const { title } = Astro.props;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta
+      name="description"
+      content="Prepárate para tus entrevistas de trabajo con nuestra plataforma de inteligencia artificial. Genera entrevistas personalizadas basadas en tu CV y mejora tus habilidades para destacar en el proceso de selección."
+    />
+    <meta
+      name="keywords"
+      content="preparación para entrevistas, inteligencia artificial, entrevistas técnicas, programadores, cv, desarrollo de software"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Entrevistador Inteligente" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/es/pagina-principal/favicon.svg" />
+    <link rel="icon" type="image/png" href="/es/pagina-principal/assets/images/footer_01.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Entrevistador Inteligente - Prepárate para tus entrevistas de trabajo con IA" />
+    <meta
+      property="og:description"
+      content="Utiliza nuestra plataforma de inteligencia artificial para generar entrevistas personalizadas basadas en tu CV y mejora tu preparación para entrevistas de trabajo en tecnología."
+    />
+    <meta property="og:url" content="https://www.kahop.com/es/entrevistas" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Cards Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Entrevistador Inteligente - Prepárate para tus entrevistas de trabajo con IA" />
+    <meta
+      name="twitter:description"
+      content="Utiliza nuestra plataforma de inteligencia artificial para generar entrevistas personalizadas basadas en tu CV y mejora tu preparación para entrevistas de trabajo en tecnología."
+    />
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://www.kahop.com/es/entrevistas" />
   </head>
   <body class="grid h-[100dvh] grid-rows-[auto_1fr_auto] bg-primary-50 font-sans">
     <RootNavbar />
