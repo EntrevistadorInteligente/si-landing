@@ -8,7 +8,11 @@ import { Button, Icon } from '@components';
     class="container relative mx-auto flex items-center justify-between gap-12 rounded-lg bg-white px-4 py-2 shadow-lg lg:w-fit lg:justify-center"
   >
     <a href={HOME_PATH} class="z-50">
-      <img src={`${IMAGES_PATH}/footer_01.png`} alt="" class="max-h-12 max-w-12 lg:max-h-8 lg:max-w-8" />
+      <img
+        src={`${IMAGES_PATH}/footer_01.png`}
+        alt="Ir a la página principal del Entrevistador Inteligente"
+        class="max-h-12 max-w-12 lg:max-h-8 lg:max-w-8"
+      />
     </a>
     <nav id="navigation" class="lg:flex lg:items-center lg:gap-12" data-state="inactive">
       <ul class="flex items-center gap-9 text-[#2D323E]">
@@ -24,7 +28,7 @@ import { Button, Icon } from '@components';
         <Button size="sm" href="/demo">Demo</Button>
       </div> -->
     </nav>
-    <Button id="burger-button" isInvert variant="neutral" class="z-50 border-0 p-4 shadow-none lg:hidden">
+    <Button id="burger-button" isInvert variant="neutral" class="z-50 border-0 p-4 shadow-none lg:hidden" ariaLabel="Botón de menú de navegación">
       <Icon icon="burger" class="h-10 w-10" />
     </Button>
   </div>
