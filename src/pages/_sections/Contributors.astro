@@ -1,15 +1,15 @@
 ---
 import { DISCORD_URL, GITHUB_TOKEN, GITHUB_URL, type GithubContributor } from '@common';
 import { Button, Icon } from '@components';
-import { Octokit } from "@octokit/rest";
+import { Octokit } from '@octokit/rest';
 
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
 async function getAllContributors() {
   try {
     const { data: repos } = await octokit.repos.listForOrg({
-      org: "EntrevistadorInteligente",
-      type: "public"
+      org: 'EntrevistadorInteligente',
+      type: 'public',
     });
 
     const excludedRepos = ['admin', 'handbook', 'si-architecture-diagrams'];
@@ -17,19 +17,25 @@ async function getAllContributors() {
 
     for (const repo of repos) {
       if (excludedRepos.includes(repo.name)) continue;
-      
+
       const { data: contributors } = await octokit.repos.listContributors({
-        owner: "EntrevistadorInteligente",
-        repo: repo.name
+        owner: 'EntrevistadorInteligente',
+        repo: repo.name,
       });
 
       allContributors = [...allContributors, ...contributors];
     }
 
-    const uniqueContributors = Array.from(new Map(allContributors.map(item => [item.id, item])).values());
+    const uniqueContributors = Array.from(new Map(allContributors.map((item) => [item.id, item])).values());
+
+    uniqueContributors.forEach((contributor) => {
+      if (contributor.avatar_url) {
+        contributor.avatar_url = `${contributor.avatar_url}&s=120`;
+      }
+    });
     return uniqueContributors;
   } catch (error) {
-    console.error("Error fetching contributors:", error);
+    console.error('Error fetching contributors:', error);
     return [];
   }
 }
@@ -44,38 +50,35 @@ const dataDevs: Array<GithubContributor> = await getAllContributors();
       <h2 id="contribuidores-titutlo" class="section-title text-center">Contribuidores</h2>
 
       <!-- Contributor Section -->
-      <div class="wrap flex w-full max-w-5xl justify-center flex-wrap" role="list">
-        <a
-        href="https://github.com/AnaRangel"
-        target="_blank"
-        class="relative ml-[-10px] hover:z-50"
-        title="AnaRangel"
-        aria-label="Perfil de GitHub de AnaRangel"
-      >
-        <img
-          src="https://avatars.githubusercontent.com/u/30361612?v=4"
-          class="h-16 w-16 cursor-pointer rounded-full border border-gray-900 object-cover transition-transform duration-700 ease-elastic hover:scale-125"
-          alt={`Avatar de AnaRangel`}
-        />
-      </a>
+      <ul class="wrap flex w-full max-w-5xl flex-wrap justify-center">
+        <li class="relative ml-[-10px] hover:z-50">
+          <a href="https://github.com/AnaRangel" target="_blank" title="AnaRangel" aria-label="Perfil de GitHub de AnaRangel">
+            <img
+              src="https://avatars.githubusercontent.com/u/30361612?v=4"
+              class="h-16 w-16 cursor-pointer rounded-full border border-gray-900 object-cover transition-transform duration-700 ease-elastic hover:scale-125"
+              alt={`Avatar de AnaRangel`}
+            />
+          </a>
+        </li>
         {
           dataDevs.map((contributor) => (
-          <a
-              href={contributor.html_url}
-              target="_blank"
-              class="relative ml-[-10px] hover:z-50"
-              title={contributor.login}
-              aria-label={`Perfil de GitHub de ${contributor.login}`}
-            >
-              <img
-                src={contributor.avatar_url}
-                class="h-16 w-16 cursor-pointer rounded-full border border-gray-900 object-cover transition-transform duration-700 ease-elastic hover:scale-125"
-                alt={`Avatar de ${contributor.login}`}
-              />
-            </a>
+            <li class="relative ml-[-10px] hover:z-50">
+              <a
+                href={contributor.html_url}
+                target="_blank"
+                title={contributor.login}
+                aria-label={`Perfil de GitHub de ${contributor.login}`}
+              >
+                <img
+                  src={contributor.avatar_url}
+                  class="h-16 w-16 cursor-pointer rounded-full border border-gray-900 object-cover transition-transform duration-700 ease-elastic hover:scale-125"
+                  alt={`Avatar de ${contributor.login}`}
+                />
+              </a>
+            </li>
           ))
         }
-      </div>
+      </ul>
 
       <!-- Button section -->
       <div class="mt-3.5 flex items-center gap-2 max-sm:flex-wrap max-sm:justify-center">

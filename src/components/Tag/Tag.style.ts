@@ -6,7 +6,7 @@ export const tagStyle = cva(
     variants: {
       variant: {
         purple: 'bg-primary-50 text-primary-600',
-        yellow: 'bg-yellow-100 text-yellow-600',
+        yellow: 'bg-yellow-50 text-yellow-700',
         green: 'bg-green-50 text-green-600',
         blue: 'bg-blue-50 text-blue-600',
       },
