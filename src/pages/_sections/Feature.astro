@@ -1,18 +1,22 @@
 ---
-import { ANGULAR_APP_URL, VIDEOS_PATH } from '@common';
+import { getPaths, VIDEOS_PATH } from '@common';
 import { Button } from '@components';
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { ANGULAR_APP_URL, } = getPaths(lang);
 ---
 
 <section id="sample" class="my-20" aria-labelledby="entrevista-titulo">
   <div class="container mx-auto px-4">
     <div class="grid place-items-center gap-4">
-      <h2 id="entrevista-titulo" class="section-title mb-8 text-center">Una muestra de las entrevista</h2>
+      <h2 id="entrevista-titulo" class="section-title mb-8 text-center">{t('feature.title')}</h2>
       <video class="relative z-10 mx-auto mt-20 w-full max-w-[860px] rounded-[16px] object-cover" loop autoplay muted>
         <source src={`${VIDEOS_PATH}/v1722752511/analisis_cv_qgzd4f.webm`} type="video/webm" />
         Your browser does not support the video tag.
       </video>
       <!-- TODO: UPDATE URL -->
-      <Button href={`${ANGULAR_APP_URL}/login`}>Probar</Button>
+      <Button href={`${ANGULAR_APP_URL}/login`}>{t('feature.button')}</Button>
     </div>
   </div>
 </section>

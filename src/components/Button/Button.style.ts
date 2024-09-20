@@ -20,6 +20,7 @@ export const button = cva(
         false: false,
       },
       size: {
+        ssm: 'h-9 px-7 py-1 text-base font-semibold',
         sm: 'h-9 px-10 py-1 text-base font-semibold',
         md: 'h-10 px-10 py-2.5 text-base font-semibold',
         lg: 'h-11 px-10 py-2 text-lg font-semibold',

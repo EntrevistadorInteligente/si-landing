@@ -1,6 +1,10 @@
 ---
-import { cn, DISCORD_URL, IMAGES_PATH, LINKEDIN_URL, PRIVACY_POLICY_PATH, TERMS_AND_CONDITIONS_PATH, TWITCH_URL } from '@common';
+import { cn, getPaths, IMAGES_PATH, } from '@common';
 import { Icon } from '@components';
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { DISCORD_URL, TWITCH_URL, LINKEDIN_URL, PRIVACY_POLICY_PATH, TERMS_AND_CONDITIONS_PATH } = getPaths(lang);
 
 interface Props {
   /**
@@ -29,7 +33,7 @@ const classes = {
           class="max-h-14 max-w-14"
         />
         <div>
-          <p id="titulo-de-footer">Redes sociales</p>
+          <p id="titulo-de-footer">{t('footer.social-media')}</p>
           <div class="mt-2 flex items-center gap-4">
             <a href={DISCORD_URL} class="text-black transition-colors hover:text-primary-600" aria-label="Únete a nuestro servidor de Discord (se abre en una nueva pestaña)" target="_blank">
               <Icon icon="discord" class="h-5 w-5 transition-transform hover:scale-110" iconStyle="solid" />
@@ -49,13 +53,13 @@ const classes = {
       <!-- Legal Links Section -->
       <div class="grid gap-4 text-center max-md:mt-10 md:text-right">
         <a href={TERMS_AND_CONDITIONS_PATH} class="text-sm font-bold text-neutral-800 transition-colors hover:text-neutral-600"
-          >Términos de servicio</a
+          >{t('footer.terms-and-conditions')}</a
         >
         <a href={PRIVACY_POLICY_PATH} class="text-sm font-bold text-neutral-800 transition-colors hover:text-neutral-600"
-          >Políticas de privacidad</a
+          >{t('footer.privacy-policy')}</a
         >
       </div>
     </div>
-    <p class="mt-7 text-center">Copyright {currentYear} © Entrevistador Inteligente</p>
+    <p class="mt-7 text-center">Copyright {currentYear} © {t('footer.title')}</p>
   </div>
 </footer>
