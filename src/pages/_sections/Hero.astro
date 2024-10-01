@@ -1,17 +1,22 @@
 ---
-import { ANGULAR_APP_URL, VIDEOS_PATH } from '@common';
+import { getPaths, VIDEOS_PATH } from '@common';
 import { Button } from '@components';
+
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { ANGULAR_APP_URL } = getPaths(lang);
 ---
 
 <section class="my-20 text-center" aria-labelledby="main-heading">
   <div class="container mx-auto px-4">
     <h1 id="main-heading" class="mx-auto max-w-[29ch] text-fluid-3xl font-medium leading-tight">
-      Analiza tu CV, evalúa ofertas laborales y obtén feedback inmediato
+      {t('hero.cvslogan')}
     </h1>
-    <p class="mt-12 text-fluid-lg font-bold">¡Adelante nosotros creemos en tí, tú puedes!</p>
+    <p class="mt-12 text-fluid-lg font-bold">{t('hero.motivational-quote')}</p>
     <div class="mx-auto mt-6 flex w-fit gap-4 max-sm:flex-wrap max-sm:justify-center">
-      <Button href={`${ANGULAR_APP_URL}/login`} isInvert> Registrarme </Button>
-      <Button href="#sample">Demo</Button>
+      <Button href={`${ANGULAR_APP_URL}/login`} isInvert> {t('hero.register')} </Button>
+      <Button href="#sample">{t('hero.demo')}</Button>
     </div>
 
     <!-- Add the Dots later on -->

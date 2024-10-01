@@ -1,17 +1,20 @@
 ---
 import { VIDEOS_PATH } from '@common';
 import { HorizontalCard } from '@components';
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="services" class="my-20" aria-labelledby="nuestro-servicios-titulo">
   <div class="container mx-auto px-4">
-    <h2 id="nuestro-servicios-titulo" class="section-title text-center">Nuestros Servicios</h2>
+    <h2 id="nuestro-servicios-titulo" class="section-title text-center">{t('services.title')}</h2>
 
     <HorizontalCard
-      title="Análisis CV"
-      description="Analizamos tu CV mediante Inteligencia Artificial (IA) y con ello podemos saber tu nivel de experiencia laboral y habilidades."
+      title={t('services.card.title')}
+      description={t('services.card.description')}
       videoUrl={`${VIDEOS_PATH}/v1722752877/analisis_cv_t9yl9c.webm`}
-      imgAltText='Captura de pantalla de una interfaz de prueba de prototipo. A la izquierda, hay un menú con varias opciones de prueba, incluyendo "Find our Services page", "What was your first impression...", "What would you expect to have...", "Was the Services page where...", "Organize these pages into cat...", y "Which of the following best d...". A la derecha, se muestra la prueba seleccionada con detalles como "Task", "Description", "Prototype", y "Expected path".'
+      imgAltText={t('services.card.video-alt')}
       isInvert
     />
     <!-- TODO: Hasta tener ofertas se ha comentado éste componente -->
@@ -25,18 +28,17 @@ import { HorizontalCard } from '@components';
     /> -->
 
     <HorizontalCard
-      title="Entrevista"
-      description="Para garantizar la entrevista, hemos asegurado que la información clave, como habilidades y experiencia, coincida en ambos documentos."
+      title={t('services.card.title-2')}
+      description={t('services.card.description-2')}
       videoUrl={`${VIDEOS_PATH}/v1722752511/entrevista_varosc.webm`}
-      imgAltText='Captura de pantalla de una interfaz de prueba de prototipo con un fondo verde degradado. A la izquierda, hay un menú con varias opciones de prueba, incluyendo "Find our Services page", "What was your first impression...", "What would you expect to have...", "Was the Services page where...", "Organize these pages into cat...", y "Which of the following best d...". A la derecha, se muestra la prueba seleccionada con detalles como "Task", "Description", "Prototype", y "Expected path".'
-      variant="yellow"
+      imgAltText={t('services.card.video-alt-2')}
     />
 
     <HorizontalCard
-      title="Feedback"
-      description="Una vez completada la entrevista te haremos el feedback de la entrevista y sabrás tus fortalezas y cosas por mejorar."
+      title={t('services.card.title-3')}
+      description={t('services.card.description-3')}
       videoUrl={`${VIDEOS_PATH}/v1722752513/feedback_pyio56.webm`}
-      imgAltText='Captura de pantalla de una interfaz de prueba de prototipo con un fondo azul degradado. A la izquierda, hay un menú con varias opciones de prueba, incluyendo "Find our Services page", "What was your first impression...", "What would you expect to have...", "Was the Services page where...", "Organize these pages into cat...", y "Which of the following best d...". A la derecha, se muestra la prueba seleccionada con detalles como "Task", "Description", "Prototype", y "Expected path".'
+      imgAltText={t('services.card.video-alt-3')}
       isInvert
       variant="blue"
     />

@@ -1,0 +1,16 @@
+---
+import { Layout } from '@layouts';
+import { Contributors, Feature, Hero, Services, WhoWeAre } from '../_sections';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const indexURL=getRelativeLocaleUrl("en","index");
+---
+
+<Layout title="Kahop - Smart Interviewer">
+  <main>
+    <Hero />
+    <Services />
+    <Feature />
+    <WhoWeAre />
+    <Contributors />
+  </main>
+</Layout>

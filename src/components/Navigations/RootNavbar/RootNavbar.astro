@@ -1,6 +1,11 @@
 ---
-import { ANGULAR_APP_URL, COMMUNITY_PATH, HOME_PATH, IMAGES_PATH, SAMPLE_PATH, SERVICES_PATH, WHO_WE_ARE_PATH } from '@common';
+import { getPaths, IMAGES_PATH, } from '@common';
 import { Button, Icon } from '@components';
+import LanguagePicker from 'components/language-selector/languagePicker.astro';
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { HOME_PATH, COMMUNITY_PATH, SAMPLE_PATH, SERVICES_PATH, WHO_WE_ARE_PATH } = getPaths(lang);
 ---
 
 <header class="mt-6">
@@ -16,11 +21,12 @@ import { Button, Icon } from '@components';
     </a>
     <nav id="navigation" class="lg:flex lg:items-center lg:gap-12" data-state="inactive">
       <ul class="flex items-center gap-9 text-[#2D323E]">
-        <li><a class="transition-colors hover:text-neutral-400" href={HOME_PATH}>Inicio</a></li>
-        <li><a class="transition-colors hover:text-neutral-400" href={SERVICES_PATH}>Servicios</a></li>
-        <li><a class="transition-colors hover:text-neutral-400" href={SAMPLE_PATH}>Muestra</a></li>
-        <li><a class="transition-colors hover:text-neutral-400" href={WHO_WE_ARE_PATH}>¿Quienes somos?</a></li>
-        <li><a class="transition-colors hover:text-neutral-400" href={COMMUNITY_PATH}>Comunidad</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={HOME_PATH}>{t('nav.home')}</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={SERVICES_PATH}>{t('nav.services')}</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={SAMPLE_PATH}>{t('nav.sample')}</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={WHO_WE_ARE_PATH}>{t('nav.about')}</a></li>
+        <li><a class="transition-colors hover:text-neutral-400" href={COMMUNITY_PATH}>{t('nav.community')}</a></li>
+        <li><LanguagePicker /></li>
       </ul>
       <!-- TODO: Se comenta por el momento los botones CTA del header -->
       <!-- <div class="button-container | flex items-center gap-4 max-lg:mt-10 max-lg:flex-wrap max-lg:justify-center max-lg:px-8">
