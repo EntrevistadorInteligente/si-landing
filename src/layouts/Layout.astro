@@ -12,10 +12,12 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import { getLangFromUrl,  } from '@i18n/utils';
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang= {lang}>
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -29,7 +31,7 @@ const { title } = Astro.props;
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Entrevistador Inteligente" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/es/pagina-principal/assets/images/footer_01.png" />
+    <link rel="icon" type="image/png" href="/home/assets/images/footer_01.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
