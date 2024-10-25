@@ -11,12 +11,7 @@ const t = useTranslations(lang);
 	<div class="dropdown-content">
 		{
 			Object.entries(languages).map(([lang, label]) => (
-				<a
-					href={`/home/${lang}/`}
-					onClick={() => lang}
-				>
-					{label}
-				</a>
+				<a href={`/home/${lang}/`}>{label}</a>
 			))
 		}
 	</div>
